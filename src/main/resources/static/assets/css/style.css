@@ -1,9 +1,4 @@
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-}
+
 
 /*
 Author: Bootstrapthemes
@@ -12,10 +7,19 @@ Author URI: http://bootstrapthemes.co
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-*{
+@font-face {
     font-family: 'Pretendard-Regular';
-
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
 }
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
 html,
 body {
     background-color: #fff;
@@ -161,11 +165,11 @@ h5 {
     line-height: 2rem;
 }
 h1 {
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard-Bold';
     font-size: 5.143rem;
     line-height: 5.5rem;
     color:#fff;
-    letter-spacing: .4rem;
+    letter-spacing: -0.5rem;
 }
 h2 {
     font-family: 'Pretendard-Regular';
@@ -546,7 +550,7 @@ input::-ms-input-placeholder {
   overflow: hidden;
 }*/
 /* navbar section */
-.navbar-top {
+.header-top {
     padding-top: 0px;
     padding-bottom: 0px;
     position: fixed;
@@ -562,6 +566,10 @@ input::-ms-input-placeholder {
     transition:all .3s;
     height: 75px;
 
+}
+
+.main-content{
+    margin-top:50px;
 }
 .main_menu_bg{
     margin-top: 0px;
@@ -1168,7 +1176,7 @@ button.btn-md:hover {
     left:0;
     bottom:0;
     content:"";
-    background: url(../images/teambg2.png) no-repeat bottom center;
+    background: url(../images/teambg2.png) no-repeat bottom center;  
 }
 .main_team ul li{
     text-align: center;

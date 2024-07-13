@@ -1,156 +1,134 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layout}"
-      layout:fragment="content">
+      layout:decorate="~{layout/layout}">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>가게 정보 입력</title>
 </head>
 <body>
-<!--<section id="contact" class="contact">-->
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="contact_contant sections">
-          <div class="head_title text-center">
-            <h2>가게 정보 입력</h2>
-            <div class="subtitle">
-              시터에 가게로 입점하기 위해서는 가게 정보 입력이 필요합니다.
+  <div layout:fragment="content">
+      <form action="#" id="formid">
+      <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <input type="text" class="form-control" name="restaurantName" placeholder="매장명" required="">
             </div>
-            <div class="separator"></div>
-          </div><!-- End off Head_title -->
-
-            <div class="col-sm-12">
-              <div class="single_contant_left padding-top-90 padding-bottom-90">
-                <form action="#" id="formid">
-                  <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
-
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="restaurantName" placeholder="매장명" required="">
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="restaurantDescription1" placeholder="한 줄 설명" required="">
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <textarea class="form-control" name="restaurantDescription2" rows="3" placeholder="매장 소개"></textarea>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <input type="email" class="form-control" name="telNo" placeholder="전화번호" required="">
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="businessHours" placeholder="영업시간" required="">
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="businessHours" placeholder="정기휴무" required="">
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="homepage" placeholder="홈페이지" required="">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div>
-                          편의시설
-                          <div class="main_feature text-center">
-
-                            <div class="col-sm-3">
-                              <div class="single_feature">
-                                <div class="single_feature_icon">
-                                  <i class="fa fa-clone"></i>
-                                </div>
-                                <h4>주차 가능</h4>
-                              </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                              <div class="single_feature">
-                                <div class="single_feature_icon">
-                                  <i class="fa fa-heart-o"></i>
-                                </div>
-
-                                <h4>콜기지 가능</h4>
-                              </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                              <div class="single_feature">
-                                <div class="single_feature_icon">
-                                  <i class="fa fa-lightbulb-o"></i>
-                                </div>
-                                <h4>대관 가능</h4>
-                              </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                              <div class="single_feature">
-                                <div class="single_feature_icon">
-                                  <i class="fa fa-comments-o"></i>
-                                </div>
-
-                                <h4>발렛 가능</h4>
-                              </div>
-                            </div>
-                            <div class="col-sm-3">
-                              <div class="single_feature">
-                                <div class="single_feature_icon">
-                                  <i class="fa fa-comments-o"></i>
-                                </div>
-
-                                <h4>대관 가능</h4>
-                              </div>
-                            </div>
-                            <div class="col-sm-3">
-                              <div class="single_feature">
-                                <div class="single_feature_icon">
-                                  <i class="fa fa-comments-o"></i>
-                                </div>
-
-                                <h4>반려동물 동반</h4>
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-
-
-
-                    <div class="">
-                      <input type="submit" value="SEND MESSAGE" class="btn btn-lg">
-                    </div>
-                  </div>
-                </form>
-              </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <input type="text" class="form-control" name="restaurantDescription1" placeholder="한 줄 설명" required="">
             </div>
-
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <textarea class="form-control" name="restaurantDescription2" rows="3" placeholder="매장 소개"></textarea>
+            </div>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <input type="email" class="form-control" name="telNo" placeholder="전화번호" required="">
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <input type="text" class="form-control" name="businessHours" placeholder="영업시간" required="">
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <input type="text" class="form-control" name="businessHours" placeholder="정기휴무" required="">
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <input type="text" class="form-control" name="homepage" placeholder="홈페이지" required="">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div>
+              편의시설
+              <div class="main_feature text-center">
+
+                <div class="col-sm-3">
+                  <div class="single_feature">
+                    <div class="single_feature_icon">
+                      <i class="fa fa-clone"></i>
+                    </div>
+                    <h4>주차 가능</h4>
+                  </div>
+                </div>
+
+                <div class="col-sm-3">
+                  <div class="single_feature">
+                    <div class="single_feature_icon">
+                      <i class="fa fa-heart-o"></i>
+                    </div>
+
+                    <h4>콜기지 가능</h4>
+                  </div>
+                </div>
+
+                <div class="col-sm-3">
+                  <div class="single_feature">
+                    <div class="single_feature_icon">
+                      <i class="fa fa-lightbulb-o"></i>
+                    </div>
+                    <h4>대관 가능</h4>
+                  </div>
+                </div>
+
+                <div class="col-sm-3">
+                  <div class="single_feature">
+                    <div class="single_feature_icon">
+                      <i class="fa fa-comments-o"></i>
+                    </div>
+
+                    <h4>발렛 가능</h4>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="single_feature">
+                    <div class="single_feature_icon">
+                      <i class="fa fa-comments-o"></i>
+                    </div>
+
+                    <h4>대관 가능</h4>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="single_feature">
+                    <div class="single_feature_icon">
+                      <i class="fa fa-comments-o"></i>
+                    </div>
+
+                    <h4>반려동물 동반</h4>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="">
+          <input type="submit" value="SEND MESSAGE" class="btn btn-lg">
+        </div>
       </div>
-    </div>
+    </form>
   </div>
-<!--</section>-->
+
 </body>
 </html>

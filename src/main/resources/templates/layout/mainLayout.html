@@ -14,27 +14,27 @@
 <div class='preloader'><div class='loaded'>&nbsp;</div></div>
 <div class="culmn">
   <header id="main_menu" class="header navbar-fixed-top" th:replace="fragments/header::headerFragment"></header> <!--End of header -->
-
-  <div class="container main-content">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="contact_contant sections">
-          <div class="head_title text-center">
-            <h2>${title}</h2>
-            <div class="subtitle">
-              ${description}
-            </div>
-            <div class="separator"></div>
-            <div class="col-sm-12">
-              <div class="single_contant_left padding-top-90 padding-bottom-90">
-                <div layout:fragment="content" class="content"></div>
-              </div>
-            </div>
-          </div><!-- End off Head_title -->
-        </div>
-      </div>
-    </div>
-  </div>
+  <div layout:fragment="content" class="content"></div>
+<!--  <div class="container main-content">-->
+<!--    <div class="row">-->
+<!--      <div class="col-sm-12">-->
+<!--        <div class="contact_contant sections">-->
+<!--          <div class="head_title text-center">-->
+<!--            <h2>${title}</h2>-->
+<!--            <div class="subtitle">-->
+<!--              ${description}-->
+<!--            </div>-->
+<!--            <div class="separator"></div>-->
+<!--            <div class="col-sm-12">-->
+<!--              <div class="single_contant_left padding-top-90 padding-bottom-90">-->
+<!--                -->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>&lt;!&ndash; End off Head_title &ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
 
   <section class="footer" th:replace="fragments/footer::footerFragment">
