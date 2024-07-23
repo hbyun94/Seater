@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>예약자 리스트</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col">
+        <div class="section-title text-center">
+          <h2>○○○ 점포 예약자 리스트</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <h4 th:text="${test}"></h4>
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Check</th>
+        <th>순번</th>
+        <th>예약자 명</th>
+        <th>예약시간</th>
+        <th>인원수</th>
+        <th>취소처리</th>
+        <th>노쇼</th>
+        <th>확정처리</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="resv : ${resv}">
+        <td><input type="checkbox"></td>
+        <td th:text="${resv.userId}"></td>
+        <td>
+          <span th:text="${resv.userName}"></span>
+        </td>
+        <td th:text="${resv.time}"></td>
+        <td th:text="${resv.userCnt}"></td>
+        <td><button class="button">Button</button></td>
+        <td><button class="button">Button</button></td>
+        <td><button class="button">Button</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

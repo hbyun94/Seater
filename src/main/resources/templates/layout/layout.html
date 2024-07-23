@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-  <th:block th:replace="fragments/config::configFragment"></th:block>
+  <th:block th:replace="~{fragments/config::configFragment}"></th:block>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Bino html5 free Template</title>
@@ -13,17 +13,15 @@
 
 <div class='preloader'><div class='loaded'>&nbsp;</div></div>
 <div class="culmn">
-  <header id="main_menu" class="header navbar-fixed-top" th:replace="fragments/header::headerFragment"></header> <!--End of header -->
+  <header id="main_menu" class="header navbar-fixed-top" th:replace="~{fragments/header::headerFragment}"></header> <!--End of header -->
 
   <div class="container main-content">
     <div class="row">
       <div class="col-sm-12">
         <div class="contact_contant sections">
           <div class="head_title text-center">
-            <h2>${title}</h2>
-            <div class="subtitle">
-              ${description}
-            </div>
+            <h2 th:text="${title}"></h2>
+            <div class="subtitle" th:text="${description}"></div>
             <div class="separator"></div>
             <div class="col-sm-12">
               <div class="single_contant_left padding-top-90 padding-bottom-90">
@@ -37,7 +35,7 @@
   </div>
 
 
-  <section class="footer" th:replace="fragments/footer::footerFragment">
+  <section class="footer" th:replace="~{fragments/footer::footerFragment}">
   </section>
 </div>
 
