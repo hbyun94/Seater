@@ -34,4 +34,4 @@ spring:
         format_sql: true
         show_sql: true
 server:
-  port: 8012
+  port: 8013
