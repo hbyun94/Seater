@@ -143,10 +143,41 @@
         }
 
     </style>
+    <script>
+        $(document).ready(function() {
+            $('#storeRequest').on('submit', function(event) {
+                event.preventDefault(); // 기본 폼 제출 방지
+
+                var formData = $(this).serializeArray(); // 폼 데이터 직렬화
+                var jsonData = {};
+
+                $.each(formData, function() {
+                    jsonData[this.name] = this.value;
+                });
+
+                $.ajax({
+                    url: '/store/new',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(jsonData),
+                    success: function(response) {
+                        if(response.success){
+                            alert(response.message);
+                            location.href = "/store/list";
+                        }
+                        console.log('Success:', response);
+                    },
+                    error: function(error) {
+                        console.log('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 <div layout:fragment="content">
-    <form action="/store/new" id="formid" method="post">
+    <form id="storeRequest" method="post">
         <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
 
             <div class="row">

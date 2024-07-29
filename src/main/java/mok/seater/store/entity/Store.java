@@ -1,14 +1,16 @@
 package mok.seater.store.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Getter;
+import jakarta.persistence.*;
+import lombok.*;
 import mok.seater.common.entity.BaseEntity;
+import org.hibernate.annotations.DynamicInsert;
 
 @Entity
 @Getter
+@Table(name = "Store")
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class Store extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
