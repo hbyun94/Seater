@@ -16,6 +16,12 @@ spring:
     suffix: .html   # 파일 확장자
     cache: false
     enabled: true
+
+#  devtools:
+#    restart:
+#      enabled: true  # 애플리케이션 리스타트 활성화
+#    livereload:
+#      enabled: true  # LiveReload 활성화
   #  mvc:
 #    static-path-pattern: /static/** # spring mvc 정적경로 변경
 

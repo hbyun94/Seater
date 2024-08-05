@@ -5,6 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <title>예약자 리스트</title>
+  <script th:src="@{/assets/js/resv.js}"></script>
 </head>
 <body>
 <div layout:fragment="content">
@@ -20,6 +21,8 @@
       <div class="col">
         <h4 th:text="${test}"></h4>
       </div>
+      <button id="btn_tempData">임시데이터 삽입</button>
+      <button id="btn_test">test</button>
     </div>
     <table class="table table-bordered">
       <thead>
@@ -35,11 +38,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr th:each="resv : ${resv}">
+      <tr th:each="resv : ${resvList}">
         <td><input type="checkbox"></td>
         <td th:text="${resv.userId}"></td>
         <td>
-          <span th:text="${resv.userName}"></span>
+          <span th:text="${resv.userId}"></span>
         </td>
         <td th:text="${resv.time}"></td>
         <td th:text="${resv.userCnt}"></td>

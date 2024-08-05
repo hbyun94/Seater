@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ResvResponse {
-    private String userId = "test";
+    private String userId ;
     private String userName;
     private String time;
     private int userCnt;
