@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StoreRequest {
+    private Long id;
     private String storeName;
-    private String desShot;
+    private String desShort;
     private String des;
     private String telNo;
     private String busiHour;
@@ -22,5 +23,5 @@ public class StoreRequest {
     private String openTime;
     private String closingTime;
     private String resvPrice;
-
+    private String delYn;
 }

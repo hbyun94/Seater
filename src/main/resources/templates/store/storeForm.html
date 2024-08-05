@@ -156,7 +156,7 @@
                 });
 
                 $.ajax({
-                    url: '/store/new',
+                    url: '/store/save',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(jsonData),
@@ -172,43 +172,69 @@
                     }
                 });
             });
+
+            $('#deleteButton').on('click', function() {
+                var id = $(this).val();
+                deleteStore(id);
+            });
+
+            function deleteStore(id) {
+                console.log("id : " + id);
+                $.ajax({
+                    url: '/store/delete',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ id: id }),
+                    success: function(response) {
+                        if(response.success){
+                            alert(response.message);
+                            location.href = "/store/list";
+                        }
+                        console.log('Success:', response);
+                    },
+                    error: function(error) {
+                        console.log('Error:', error);
+                    }
+                });
+            }
         });
+
     </script>
 </head>
 <body>
 <div layout:fragment="content">
     <form id="storeRequest" method="post">
         <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
-
+            <input type="hidden" name="id" th:value="${store != null ? store.id : ''}">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="dust-class">
                         <label for="storeName"><span>* </span>매장명</label>
-                        <input type="text" class="txt-input" id="storeName" name="storeName" value="">
+                        <input type="text" class="txt-input" id="storeName" name="storeName" th:value="${store != null ? store.storeName : ''}">
                     </div>
                     <div class="dust-class">
                         <label for="desShort"><span>* </span>한 줄 설명</label>
-                        <input type="text" class="txt-input" id="desShort" name="desShort" value="">
+                        <input type="text" class="txt-input" id="desShort" name="desShort" th:value="${store != null ? store.desShort : ''}">
                     </div>
                     <div class="dust-class">
                         <label for="des"><span>* </span>매장 소개</label>
-                        <textarea class="txt-input" id="des" name="des" rows="3"></textarea>
+                        <textarea class="txt-input" id="des" name="des" rows="3" th:text="${store != null ? store.des : ''}"></textarea>
                     </div>
                     <div class="dust-class">
                         <label for="telNo"><span>* </span>전화번호</label>
-                        <input type="text" class="txt-input" id="telNo" name="telNo" value="">
+                        <input type="text" class="txt-input" id="telNo" name="telNo" th:value="${store != null ? store.telNo : ''}">
                     </div>
                     <div class="dust-class">
                         <label for="busiHour"><span>* </span>영업시간</label>
-                        <input type="text" class="txt-input" id="busiHour" name="busiHour" value="">
+                        <input type="text" class="txt-input" id="busiHour" name="busiHour" th:value="${store != null ? store.busiHour : ''}">
                     </div>
                     <div class="dust-class">
                         <label for="regularHoli"><span>* </span>정기휴무</label>
-                        <input type="text" class="txt-input" id="regularHoli" value="">
+                        <input type="text" class="txt-input" id="regularHoli" th:value="${store != null ? store.regularHoli : ''}">
                     </div>
                     <div class="dust-class">
                         <label for="homepage"><span>* </span>홈페이지</label>
-                        <input type="text" class="txt-input" id="homepage" value="">
+                        <input type="text" class="txt-input" id="homepage" th:value="${store != null ? store.homepage : ''}">
                     </div>
                     <div class="dust-class2">
                         <span><label>편의시설</label></span>
@@ -283,12 +309,13 @@
                     </div>
                     <div class="dust-class">
                         <label for="resvPrice"><span>* </span>예약금</label>
-                        <input type="number" class="txt-input" id="resvPrice" value="">
+                        <input type="number" class="txt-input" id="resvPrice" th:value="${store != null ? store.resvPrice : ''}">
                     </div>
                 </div>
             </div>
             <div class="">
                 <button type="submit" class="btn btn-lg">저장</button>
+                <button type="button" class="btn btn-lg" id="deleteButton" th:value="${store.id}">삭제</button>
             </div>
         </div>
     </form>

@@ -7,9 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -26,8 +24,6 @@ public class StoreController {
     public String storeList(Model model) {
         List<StoreResponse> storeList = storeService.list();
         model.addAttribute("storeList", storeList);
-
-        System.out.println("Store List: " + storeList);
 
         model.addAttribute("title", "가게 목록");
         model.addAttribute("description", "시터에 입점한 가게 목록입니다.");
@@ -46,8 +42,8 @@ public class StoreController {
         return "store/storeForm";
     }
 
-    @PostMapping(value = "/store/new")
-    public ResponseEntity<Map<String, Object>> insert(@RequestBody StoreRequest storeRequest) {
+    @PostMapping(value = "/store/save")
+    public ResponseEntity<Map<String, Object>> save(@RequestBody StoreRequest storeRequest) {
         storeService.save(storeRequest);
 
         Map<String, Object> response = new HashMap<>();
@@ -57,5 +53,25 @@ public class StoreController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping(value = "/store/detail/{id}")
+    public String storeDetail(@PathVariable("id") Long id, Model model) {
+        StoreResponse store = storeService.getStore(id);
+        model.addAttribute("store", store);
+        model.addAttribute("title", "가게 정보 수정");
+        model.addAttribute("description", "시터에 가게로 입점하기 위해서는 가게 정보 입력이 필요합니다.");
+        return "store/storeForm";
+    }
+
+    @PostMapping(value = "/store/delete")
+    public ResponseEntity<Map<String, Object>> delete(@RequestBody Map<String, Object> requestBody) {
+        Long id = Long.valueOf((String) requestBody.get("id"));
+        storeService.updateDelYn(id);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", true);
+        response.put("message", "삭제되었습니다");
+
+        return ResponseEntity.ok(response);
+    }
 
 }

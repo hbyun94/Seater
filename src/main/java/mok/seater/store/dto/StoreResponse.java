@@ -1,16 +1,15 @@
 package mok.seater.store.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+@Builder
 @Getter
-@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class StoreResponse {
     private Long id;
     private String storeName;
-    private String desShot;
+    private String desShort;
     private String des;
     private String telNo;
     private String busiHour;
@@ -21,4 +20,5 @@ public class StoreResponse {
     private String openTime;
     private String closingTime;
     private String resvPrice;
+    private String delYn;
 }
