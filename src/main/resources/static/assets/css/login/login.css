@@ -10,12 +10,12 @@
 
 .signin-wrapper {
     flex-grow: 1;
-    background: #d5d5d5;
+    /*background: #d5d5d5;*/
     transition: all .32s ease-in; }
 
 .signup-wrapper {
     flex-grow: 1;
-    background: #0F3758;
+    /*background: #0F3758;*/
     transition: all .32s ease-in-out; }
 
 .active {
@@ -54,7 +54,7 @@ h5 {
     padding: 20px 0;
     margin: 20px auto;
     border-radius: 15px; }
-.form-wrapper button {
+.form-wrapper .button {
     cursor: pointer;
     font-weight: bold;
     width: 230px;
@@ -64,20 +64,30 @@ h5 {
     border-radius: 5px;
     outline: none;
     border: none;
-    font-size: 14px; }
-.form-wrapper button.primary {
+    font-size: 14px;
+}
+
+.form-wrapper .button.primary {
     color: white;
-    background: #0F3758; }
-.form-wrapper button.primary:hover {
-    opacity: .9; }
-.form-wrapper button.secondary {
+    background: #0F3758;
+}
+
+.form-wrapper .button.primary:hover {
+    opacity: .9;
+}
+
+.form-wrapper .button.secondary {
     background: white;
-    color: #0F3758; }
-.form-wrapper button.secondary:hover {
-    background: #f5f5f5; }
+    color: #0F3758;
+}
+
+.form-wrapper .button.secondary:hover {
+    background: #f5f5f5;
+}
+
 .form-wrapper .form-field {
     font-weight: bold;
-    width: 200px;
+    width: 230px;
     margin: 0 35px 20px;
     height: 35px;
     padding: 6px 15px;
@@ -86,13 +96,45 @@ h5 {
     border: none;
     background: #f5f5f5;
     color: #748194;
-    font-size: 14px; }
+    font-size: 14px;
+}
+
 .form-wrapper p {
     color: #424242;
     font-size: 14px;
-    text-align: center; }
+    text-align: center;
+}
+
 .form-wrapper p a {
     cursor: pointer;
-    color: #0F3758; }
+    color: #0F3758;
+}
+
 .form-wrapper p a:hover {
-    color: #009688; }
+    color: #009688;
+}
+
+
+/* 아이콘 버튼 스타일 */
+.icon-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* 버튼 사이의 간격 */
+}
+
+.icon-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f5f5f5; /* 버튼 배경색 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-button img {
+    width: 24px;
+    height: 24px;
+}

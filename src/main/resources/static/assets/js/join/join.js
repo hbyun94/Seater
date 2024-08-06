@@ -1,8 +1,8 @@
 $(function(){
 })
 
-function fnLogin() {
-    var formData = $("#loginForm").serializeArray(); // 폼 데이터 직렬화
+function fnJoin() {
+    var formData = $("#joinForm").serializeArray(); // 폼 데이터 직렬화
     var jsonData = {};
 
     $.each(formData, function() {
@@ -10,15 +10,14 @@ function fnLogin() {
     });
 
     $.ajax({
-        url: '/login/login',
+        url: '/join/new',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(jsonData),
         success: function(response) {
             if(response.success){
-                console.log("hihi")
                 alert(response.message);
-                location.href = "/main";
+                location.href = "/newLogin";
             }
             console.log('Success:', response);
         },

@@ -5,182 +5,24 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<!--    <link th:href="@{/login.css}" rel="stylesheet"/>-->
-<!--    <script type="text/javascript" th:src="@{/newLogin.js}"></script>-->
+    <link th:href="@{/assets/css/login/login.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/assets/js/login/newLogin.js}"></script>
     <title>로그인</title>
     <style>
-        .root {
-            display: flex;
-            width: 100%;
-            height: 100%; }
 
-        .mobile-root {
-            flex-direction: column; }
-        .mobile-root .inactive {
-            display: none; }
-
-        .signin-wrapper {
-            flex-grow: 1;
-            /*background: #d5d5d5;*/
-            transition: all .32s ease-in; }
-
-        .signup-wrapper {
-            flex-grow: 1;
-            background: #0F3758;
-            transition: all .32s ease-in-out; }
-
-        .active {
-            flex-grow: 6; }
-        .active.form {
-            z-index: 5; }
-
-        .inactive {
-            pointer-events: none;
-            filter: blur(2px) grayscale(80%);
-            transform: scale(1.1); }
-        .inactive .form-wrapper {
-            filter: opacity(55%); }
-
-        html, body {
-            font-family: 'Roboto';
-            height: 100vh;
-            padding: 0;
-            margin: 0; }
-
-        h5 {
-            color: #212121;
-            font-size: 20px;
-            margin: 15px 0 30px 0;
-            text-align: center; }
-
-        .form, .form-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: center; }
-
-        .form-wrapper {
-            background-color: white;
-            width: 300px;
-            height: 500px;
-            padding: 20px 0;
-            margin: 20px auto;
-            border-radius: 15px; }
-        .form-wrapper .button {
-            cursor: pointer;
-            font-weight: bold;
-            width: 230px;
-            margin: 0 35px 20px;
-            height: 45px;
-            padding: 6px 15px;
-            border-radius: 5px;
-            outline: none;
-            border: none;
-            font-size: 14px;
-        }
-
-        .form-wrapper .button.primary {
-            color: white;
-            background: #0F3758;
-        }
-
-        .form-wrapper .button.primary:hover {
-            opacity: .9;
-        }
-
-        .form-wrapper .button.secondary {
-            background: white;
-            color: #0F3758;
-        }
-
-        .form-wrapper .button.secondary:hover {
-            background: #f5f5f5;
-        }
-
-        .form-wrapper .form-field {
-            font-weight: bold;
-            width: 230px;
-            margin: 0 35px 20px;
-            height: 35px;
-            padding: 6px 15px;
-            border-radius: 5px;
-            outline: none;
-            border: none;
-            background: #f5f5f5;
-            color: #748194;
-            font-size: 14px;
-        }
-
-        .form-wrapper p {
-            color: #424242;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        .form-wrapper p a {
-            cursor: pointer;
-            color: #0F3758;
-        }
-
-        .form-wrapper p a:hover {
-            color: #009688;
-        }
-
-
-        /* 아이콘 버튼 스타일 */
-        .icon-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* 버튼 사이의 간격 */
-        }
-
-        .icon-button {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #f5f5f5; /* 버튼 배경색 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            cursor: pointer;
-        }
-
-        .icon-button img {
-            width: 24px;
-            height: 24px;
-        }
 
     </style>
 </head>
 <body>
 <div layout:fragment="content">
-    <form action="#" id="formid">
-<!--        <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">-->
-
-<!--            <div class="row">-->
-<!--                <div class="col-sm-12">-->
-<!--                    <div class="form-group">-->
-<!--                        <input type="text" class="form-control" name="restaurantName" placeholder="아이디" required="">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-sm-12">-->
-<!--                    <div class="form-group">-->
-<!--                        <input type="text" class="form-control" name="restaurantDescription1" placeholder="비밀번호" required="">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="">-->
-<!--                <input type="submit" value="로그인" class="btn btn-lg">-->
-<!--            </div>-->
-<!--        </div>-->
+    <form action="#" id="loginForm">
         <div class="root">
-            <div class="signin-wrapper form active">
+            <div class="signin-wrapper form">
                 <div class="form-wrapper">
                     <h5>로그인</h5>
-                    <input type="text" placeholder="아이디" class="form-field"></input>
-                    <input  type="password" placeholder="비밀번호" class="form-field"></input>
-                    <button class="button primary">로그인</button>
+                    <input type="text" id="userId" name="userId" placeholder="아이디" class="form-field"></input>
+                    <input type="password" id="password" name="password" autocomplete="off" placeholder="비밀번호" class="form-field"></input>
+                    <button id="btnLogin" class="button primary" th:onclick="fnLogin()">로그인</button>
 
                     <div class="icon-buttons">
                         <button class="icon-button">
@@ -193,23 +35,12 @@
                             <img src="assets/images/icon_kakao.svg" alt="Kakao Login">
                         </button>
                     </div>
-<!--                    <button class="button secondary" id="click-signup">회원가입</button>-->
+                    <button class="button secondary" id="click-signup"><a href="/join">회원가입</a></button>
 
                 </div>
 
             </div>
-            <div class="signup-wrapper form inactive" style="display:none;">
-                <div class="form-wrapper">
-                    <h5>👋 Hello</h5>
-                    <input type="text" placeholder="이름" class="form-field"></input>
-                    <input type="email" placeholder="이메일" class="form-field"></input>
-                    <input  type="password" placeholder="비밀번호" class="form-field"></input>
-                    <input  type="password" placeholder="비밀번호 확인" class="form-field"></input>
-                    <button class="button primary">회원가입</button>
-                    <button class="button secondary" id="click-signin">로그인</button>
 
-                </div>
-            </div>
         </div>
     </form>
 </div>
